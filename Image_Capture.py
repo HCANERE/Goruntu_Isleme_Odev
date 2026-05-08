@@ -2,10 +2,10 @@ import numpy as np
 import cv2
 
 def bgr_to_rgb(image):
-    return image[:,:,-1] #BGR'I RGB'ye çeviren tersleme işlemim
+    return image[:,:,::-1] #BGR'I RGB'ye çeviren tersleme işlemim
 
 def rgb_to_bgr(image):
-    return image[:,:,-1] #Yukarıdakinin tersi daa
+    return image[:,:,::-1] #Yukarıdakinin tersi daa
 
 def load_image(path):
 
@@ -29,6 +29,6 @@ def show_image(image,title="Resim"):
         display_image=image # 3 kanallı değilse ya binary ya gray dönüşüme gerek yok
    
     cv2.imshow(title,display_image)
-    #Bunları yazdığınız fonksiyonları denemek amaçlı kullanın 
+    #Bunları yazdığınız fonksiyonları denemek amaçlı kullanın sakın arayüzde kullanmayın patlar arayüz
     cv2.waitKey(0) # Tuşa basana kadar bekler
     cv2.destroyAllWindows() # Tuşa basınca kapar
